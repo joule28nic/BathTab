@@ -1,24 +1,31 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# BathTab
+​
+## サイト概要
+### サイトテーマ
+温泉施設の情報を検索したり、自分が行った施設の評価を投稿したりできるレビューサイト
+​
+### テーマを選んだ理由
+温泉が好きでよく行くのですが、施設によって設備が違うため必要な持ち物を調べるのが面倒に感じていました。<br>
+そこで施設ごとの設備情報やレビューをわかりやすくまとめたサービスがあれば便利だと考えました。<br>
+アフターコロナに伴い旅行需要が回復する中で、旅先の施設を検索できるサイトは需要が見込めると考えています。
+​
+### ターゲットユーザ
+温泉が好きでよく行く人<br>
+旅先で温泉施設を探したい人
+​
+### 主な利用シーン
+行きたい温泉の情報を調べたい時<br>
+旅先の施設を探したい時
+​
+## 設計書
+後ほど作成
+​
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+​
+## 使用素材
+- GoogleMapAPI
