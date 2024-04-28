@@ -18,7 +18,8 @@
 旅先の施設を探したい時
 ​
 ## 設計書
-後ほど作成
+後ほど作成<br>
+実装機能リストhttps://docs.google.com/spreadsheets/d/1U_P9ZtKLrqVh79maXOXu1CokjUKNP4EjuyvbcmSaxDE/edit#gid=1091086188
 ​
 ## 開発環境
 - OS：Linux(CentOS)
