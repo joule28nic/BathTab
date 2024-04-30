@@ -6,11 +6,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="container-fluid mx-2">
+      <div class="row mt-3 pb-3 border-bottom">
+        <div class="col-3 d-flex align-items-center">
+          <%= link_to "BathTab", root_path, class: "text-reset", style: "font-size: xx-large;" %>
+        </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
