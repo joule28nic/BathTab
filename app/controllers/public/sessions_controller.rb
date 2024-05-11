@@ -3,7 +3,11 @@
 class Public::SessionsController < Devise::SessionsController
   before_action :customer_state, only: [:create]
 
-  
+  def guest_sign_in
+    customer = Customer.guest
+    sign_in customer
+    redirect_to customer_path(customer), notice: "guestuserでログインしました。"
+  end
 
   private
 
