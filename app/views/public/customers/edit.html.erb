@@ -1,1 +1,30 @@
-<h1>編集</h1>
+<h1>会員情報編集</h1>
+
+<%= form_with model: @customer, url: customers_information_path do |f| %>
+
+  <div class="field">
+    <label for="name">ユーザー名</label><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <label for="email">メールアドレス</label><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <label for="sex">性別</label><br />
+    <%= f.select :sex, options_for_select(Customer.sexes_i18n.invert, @customer.sex) %>
+  </div>
+
+  <div class="field">
+    <label for="age">年齢</label><br />
+    <%= f.select :age, options_for_select(Customer.ages_i18n.invert, @customer.age) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "変更する" %>
+    <%= link_to "退会する", unsubscribe_path %>
+  </div>
+
+<% end %>
