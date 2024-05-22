@@ -1,11 +1,14 @@
 class Admin::FacilitesController < ApplicationController
+  before_action :authenticate_admin!
+
+  def index
+  end
+
   def new
+    @facility = Facility.
   end
 
   def create
-  end
-
-  def index
   end
 
   def show
