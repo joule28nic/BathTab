@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2024_04_30_131128) do
     t.string "telephone_number", null: false
     t.string "business_hours", null: false
     t.string "regular_holiday", null: false
+    t.string "price", null: false
     t.text "access", null: false
     t.integer "parking", null: false
     t.datetime "created_at", precision: 6, null: false

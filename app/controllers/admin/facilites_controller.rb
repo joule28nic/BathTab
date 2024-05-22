@@ -5,7 +5,7 @@ class Admin::FacilitesController < ApplicationController
   end
 
   def new
-    @facility = Facility.
+    @facility = Facility.new
   end
 
   def create
