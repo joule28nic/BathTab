@@ -7,13 +7,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/' => 'homes#top'
-    resources :customers, only: [:index, :show, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :facilites, except: [:destroy]
   end
 
 
   # ゲストログイン用
   devise_scope :customer do
-    post "customers/guest_sign_in", to: "customers/sessions#guest_sign_in"
+    post "customers/guest_sign_in", to: "public/sessions#guest_sign_in"
   end
 
   # 顧客用

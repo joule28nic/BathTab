@@ -1,0 +1,2 @@
+module Admin::FacilitesHelper
+end
