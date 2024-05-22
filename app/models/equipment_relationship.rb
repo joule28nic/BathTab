@@ -1,0 +1,2 @@
+class EquipmentRelationship < ApplicationRecord
+end

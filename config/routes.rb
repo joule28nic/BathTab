@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/' => 'homes#top'
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :facilites, except: [:destroy]
+    resources :facilities, except: [:destroy]
   end
 
 
@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     patch 'customers/information' => 'customers#update'
     get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch '/customers/withdraw' => 'customers#withdraw', as: 'withdraw'
+    post 'reviews/comfirm' => 'reviews#comfirm'
+    resources :reviews, except: [:edit, :update]
   end
 
 end
