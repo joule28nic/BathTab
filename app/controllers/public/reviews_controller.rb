@@ -2,6 +2,7 @@ class Public::ReviewsController < ApplicationController
   before_action :authenticate_customer!
 
   def new
+    @facility = Facility.find(params[:facility_id])
     @review = Review.new
   end
 
