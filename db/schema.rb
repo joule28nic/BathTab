@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2024_05_22_133442) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.integer "sex", null: false
+    t.integer "gender", null: false
     t.integer "age", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 2024_05_22_133442) do
   create_table "reviews", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "facility_id", null: false
+    t.string "title", null: false
     t.integer "total_score", null: false
     t.integer "facility_score", null: false
     t.integer "onsen_score", null: false

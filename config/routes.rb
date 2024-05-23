@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch '/customers/withdraw' => 'customers#withdraw', as: 'withdraw'
     post 'reviews/comfirm' => 'reviews#comfirm'
+    resources :facilities, only: [:index, :show]
     resources :reviews, except: [:edit, :update]
   end
 

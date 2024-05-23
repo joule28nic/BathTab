@@ -4,7 +4,11 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum sex: { not_selected: 0, male: 1, female: 2}, _prefix: true
+  has_many :favolites
+  has_many :likes
+  has_many :reviews
+
+  enum gender: { not_selected: 0, male: 1, female: 2}, _prefix: true
   enum age: { not_selected: 0, teens: 1, twenties: 2, thirties: 3, forties: 4, fifties: 5, sixties: 6}, _prefix: true
 
   GUEST_USER_EMAIL = "guest@example.com"
@@ -13,7 +17,7 @@ class Customer < ApplicationRecord
     find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "guestuser"
-      user.sex = 0
+      user.gender = 0
       user.age = 0
     end
   end

@@ -15,7 +15,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.datetime :remember_created_at
 
       t.string :name, null: false
-      t.integer :sex, null: false
+      t.integer :gender, null: false
       t.integer :age, null: false
       t.boolean :is_active, default: true, null: false
 
