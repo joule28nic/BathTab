@@ -18,7 +18,36 @@
         <div class="field row mb-3">
           <label for="total_score" class="col-sm-4 col-form-label">評価</label>
           <label for="total_score" class="col-sm-4 col-form-label">総合</label>
-          <%= 
+          <%= f.select :total_score, options_for_select([1, 2, 3, 4, 5]), class: "col-sm-3" %>
+          <label for="total_score" class="col-sm-1 col-form-label">点</label>
+        </div>
+        <div class="field row mb-3">
+          <label for="facility_score" class="col-sm-4 offset-4 col-form-label">施設</label>
+          <%= f.select :facility_score, options_for_select([1, 2, 3, 4, 5]), class: "col-sm-3" %>
+          <label for="facility_score" class="col-sm-1 col-form-label">点</label>
+        </div>
+        <div class="field row mb-3">
+          <label for="osnen_score" class="col-sm-4 offset-4 col-form-label">温泉</label>
+          <%= f.select :onsen_score, options_for_select([1, 2, 3, 4, 5]), class: "col-sm-3" %>
+          <label for="onsen_score" class="col-sm-1 col-form-label">点</label>
+        </div>
+        <div class="field row mb-3">
+          <label for="service_score" class="col-sm-4 offset-4 col-form-label">サービス</label>
+          <%= f.select :service_score, options_for_select([1, 2, 3, 4, 5]), class: "col-sm-3" %>
+          <label for="service_score" class="col-sm-1 col-form-label">点</label>
+        </div>
+        <div class="field row mb-3">
+          <label for="meal_score" class="col-sm-4 offset-4 col-form-label">食事</label>
+          <%= f.select :meal_score, options_for_select([1, 2, 3, 4, 5]), class: "col-sm-3" %>
+          <label for="meal_score" class="col-sm-1 col-form-label">点</label>
+        </div>
+        <div class="field row mb-5">
+          <label for="comment" class="col-sm-4 col-form-label">コメント</label>
+          <%= f.text_area :comment, class: "col-sm-7", rows: 4, placeholder: "コメント", id: "comment" %>
+        </div>
+
+        <div class="action">
+          <%= f.submit "投稿内容を確認する", class: "btn btn-success col-6 mx-auto d-block" %>
         </div>
       <% end %>
     </div>

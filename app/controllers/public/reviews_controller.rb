@@ -11,12 +11,17 @@ class Public::ReviewsController < ApplicationController
   end
 
   def create
+    @review = Review.new(review_params)
+    @review.customer_id = current_customer.id
+    @review.save
+    redirect_to facility_review_path(@review)
   end
 
   def index
   end
 
   def show
+    @review = Review.find(params[:id])
   end
 
   def destroy
