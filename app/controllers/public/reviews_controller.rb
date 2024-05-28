@@ -3,7 +3,7 @@ class Public::ReviewsController < ApplicationController
 
   def new
     @facility = Facility.find(params[:facility_id])
-    @review = Review.new
+    @review = @facility.reviews.new
   end
 
   def comfirm
@@ -14,13 +14,14 @@ class Public::ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.customer_id = current_customer.id
     @review.save
-    redirect_to facility_review_path(@review)
+    redirect_to facility_review_path(@review.facility_id, @review)
   end
 
   def index
   end
 
   def show
+    @facility = Facility.find(params[:facility_id])
     @review = Review.find(params[:id])
   end
 

@@ -45,6 +45,7 @@
           <label for="comment" class="col-sm-4 col-form-label">コメント</label>
           <%= f.text_area :comment, class: "col-sm-7", rows: 4, placeholder: "コメント", id: "comment" %>
         </div>
+        <%= f.hidden_field :facility_id %>
 
         <div class="action">
           <%= f.submit "投稿内容を確認する", class: "btn btn-success col-6 mx-auto d-block" %>

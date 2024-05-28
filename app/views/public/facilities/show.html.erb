@@ -1,2 +1,14 @@
-<h3><%= @facility.name %></h3>
-<%= link_to 'レビューする', new_facility_review_path(@facility) %>
+<div class="container">
+  <div class="row py-4">
+    <div class="col-4 text-center">
+      <h3><%= @facility.name %></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= link_to 'レビューする', new_facility_review_path(@facility.id) %>
+    </div>
+  </div>
+
+</div>

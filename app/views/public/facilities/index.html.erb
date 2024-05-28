@@ -1,2 +1,18 @@
-<h1>Public::Facilities#index</h1>
-<p>Find me in app/views/public/facilities/index.html.erb</p>
+<div class="container">
+  <div class="row py-4">
+    <div class="col-4 text-center">
+      <h3>施設一覧</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @facilities.each do |facility| %>
+      <div class="row">
+        <div class="col">
+          <%= link_to facility.name, facility_path(facility) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
