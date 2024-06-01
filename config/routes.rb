@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     patch 'customers/information' => 'customers#update'
     get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch '/customers/withdraw' => 'customers#withdraw', as: 'withdraw'
+    get 'customers/favorites'
+    get 'customers/reviews'
     resources :facilities, only: [:index, :show] do
       resources :reviews, except: [:edit, :update]
       post 'reviews/comfirm' => 'reviews#comfirm'

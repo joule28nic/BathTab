@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2024_05_31_115134) do
     t.float "longitude", default: 0.0, null: false
   end
 
-  create_table "favolites", force: :cascade do |t|
+  create_table "favorites", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "facility_id", null: false
     t.datetime "created_at", precision: 6, null: false

@@ -1,0 +1,20 @@
+<div class="col-3">
+  <div class="row">
+    <div class="col">
+      <%= link_to current_customer.name, my_page_path, class: "btn btn-block" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= link_to "投稿したレビュー一覧", customers_reviews_path, class: "btn btn-block" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= link_to "お気に入り施設一覧", customers_favorites_path, class: "btn btn-block" %>
+    </div>
+  </div>
+
+</div>
