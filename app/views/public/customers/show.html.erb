@@ -8,29 +8,35 @@
   <div class="row">
     <%= render 'shared/my_page' %>
     <div class="col-8">
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-4 text-center">
           <h5>登録情報</h5>
         </div>
       </div>
 
       <div class="row">
-        <table class="col table table-bordered">
-          <tbody>
-            <tr>
-              <th>メールアドレス</th>
-              <th><%= @customer.name %></th>
-            </tr>
-            <tr>
-              <th>性別</th>
-              <th><%= @customer.gender_i18n %></th>
-            </tr>
-            <tr>
-              <th>年齢</th>
-              <th><%= @customer.age_i18n %></th>
-            </tr>
-          </tbody>
-        </table>
+        <div class="col-4">
+          <p>メールアドレス</p>
+        </div>
+        <div class="col-8">
+          <p><%= @customer.name %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <p>性別</p>
+        </div>
+        <div class="col-8">
+          <p><%= @customer.gender_i18n %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <p>年齢</p>
+        </div>
+        <div class="col-8">
+          <p><%= @customer.age_i18n %></p>
+        </div>
       </div>
       <% unless @customer.guest_user? %>
       <div class="row justify-content-center">
