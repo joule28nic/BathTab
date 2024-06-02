@@ -22,7 +22,7 @@
     <%= f.select :age, options_for_select(Customer.ages_i18n.invert, @customer.age) %>
   </div>
 
-  <% if user.email != "guest@example.com" %>
+  <% unless @customer.guest_user? %>
     <div class="actions">
       <%= f.submit "変更する" %>
       <%= link_to "退会する", unsubscribe_path %>

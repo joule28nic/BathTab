@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :favolites
+  has_many :favorites
   has_many :likes
   has_many :reviews
 
@@ -20,6 +20,10 @@ class Customer < ApplicationRecord
       user.gender = 0
       user.age = 0
     end
+  end
+
+  def guest_user?
+    email == GUEST_USER_EMAIL
   end
 
 end

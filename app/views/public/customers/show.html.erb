@@ -1,14 +1,44 @@
 <div class="container">
   <div class="row">
     <div class="col-4 text-center">
-      <h3>マイページ</h3>
+      <h3><%= @customer.name %></h3>
     </div>
   </div>
 
   <div class="row">
     <%= render 'shared/my_page' %>
-    <div class="col-9">
+    <div class="col-8">
+      <div class="row">
+        <div class="col-4 text-center">
+          <h5>登録情報</h5>
+        </div>
+      </div>
 
+      <div class="row">
+        <table class="col table table-bordered">
+          <tbody>
+            <tr>
+              <th>メールアドレス</th>
+              <th><%= @customer.name %></th>
+            </tr>
+            <tr>
+              <th>性別</th>
+              <th><%= @customer.gender_i18n %></th>
+            </tr>
+            <tr>
+              <th>年齢</th>
+              <th><%= @customer.age_i18n %></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <% unless @customer.guest_user? %>
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <%= link_to "編集する", customers_information_edit_path, class: "btn btn-success btn-block" %>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 

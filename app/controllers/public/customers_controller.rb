@@ -29,6 +29,15 @@ class Public::CustomersController < ApplicationController
     redirect_to root_path
   end
 
+  def favorites
+    @customer = current_customer
+    @facilities = @customer.favorites.includes(:facility)
+  end
+
+  def reviews
+    @customer = current_customer
+  end
+
 
   private
 
@@ -37,9 +46,9 @@ class Public::CustomersController < ApplicationController
   end
 
   def ensure_guest_user
-    @customer = Customer.find(params[:id])
-    if @customer.email == "guest@example.com"
-      redirect_to customer_path(current_customer) , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+    @customer = current_customer
+    if @customer.guest_user?
+      redirect_to my_page_path, notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
     end
   end
 
