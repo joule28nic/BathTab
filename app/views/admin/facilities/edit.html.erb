@@ -47,11 +47,6 @@
           <label for="access" class="col-sm-4 col-form-label">アクセス</label>
           <%= f.text_area :access, class: "col-sm-7", rows: 4, placeholder: "〇〇より車で〇分", id: "access" %>
         </div>
-        <div class="field row mb-3">
-          <label for="parking" class="col-sm-4 col-form-label">駐車場</label>
-          <%= f.text_field :parking, class: "col-sm-6", placeholder: "000", id: "parking" %>
-          <label for="parking" class="col-sm-1 col-form-label">台</label>
-        </div>
 
         <div class="action">
           <%= f.submit "変更を保存", class: "btn btn-success col-3 mx-auto d-block" %>
