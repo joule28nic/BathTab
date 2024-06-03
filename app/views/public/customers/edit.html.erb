@@ -1,32 +1,51 @@
-<h1>会員情報編集</h1>
-
-<%= form_with model: @customer, url: customers_information_path do |f| %>
-
-  <div class="field">
-    <label for="name">ユーザー名</label><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <label for="email">メールアドレス</label><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <label for="gender">性別</label><br />
-    <%= f.select :gender, options_for_select(Customer.genders_i18n.invert, @customer.gender) %>
-  </div>
-
-  <div class="field">
-    <label for="age">年齢</label><br />
-    <%= f.select :age, options_for_select(Customer.ages_i18n.invert, @customer.age) %>
-  </div>
-
-  <% unless @customer.guest_user? %>
-    <div class="actions">
-      <%= f.submit "変更する" %>
-      <%= link_to "退会する", unsubscribe_path %>
+<div class="container">
+  <div class="row py-4">
+    <div class="col-4 text-center">
+      <h3>会員情報編集</h3>
     </div>
-  <% end %>
+  </div>
 
-<% end %>
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-lg-8 px-5 px-sm-0 mx-auto">
+      <%= form_with model: @customer, url: customers_information_path do |f| %>
+
+        <div class="field row my-3">
+          <label for="name" class="col-sm-4 col-form-label">ユーザー名</label>
+          <%= f.text_field :name, autofocus: true, class: "col-sm-8", id: "name" %>
+        </div>
+
+        <div class="field row mb-3">
+          <label for="email" class="col-sm-4 col-form-label">メールアドレス</label>
+          <%= f.email_field :email, class: "col-sm-8", id: "email" , autocomplete: "email" %>
+        </div>
+
+        <div class="field row mb-3">
+          <label for="gender" class="col-sm-4 col-form-label">性別</label>
+          <%= f.select :gender, options_for_select(Customer.genders_i18n.invert, @customer.gender), class: "col-sm-8", id: "gender" %>
+        </div>
+
+        <div class="field row mb-3">
+          <label for="age" class="col-sm-4 col-form-label">年齢</label>
+          <%= f.select :age, options_for_select(Customer.ages_i18n.invert, @customer.age), class: "col-sm-8", id: "age" %>
+        </div>
+
+        <% unless @customer.guest_user? %>
+          <div class="actions row">
+            <%= f.submit "変更する", class: "btn btn-success col-3 offset-4 mb-3" %>
+          </div>
+
+          <div class="row">
+            <div class="col-4 offset-4">
+              <%= link_to "前の画面に戻る", my_page_path %>
+            </div>
+            <div class="col-4">
+              <%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %>
+            </div>
+          </div>
+        <% end %>
+
+      <% end %>
+    </div>
+  </div>
+
+</div>
