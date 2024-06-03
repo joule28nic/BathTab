@@ -6,34 +6,35 @@
   </div>
   <div class="row pb-3">
     <div class="col-8">
-      <%= form_with model: @customer, url: admin_customer_path do |f| %>
-        <table class="table table-borderless">
-          <tbody>
-            <tr>
-              <th>ユーザー名</th>
-              <th><%= f.text_field :name, readonly: true %></th>
-            </tr>
-            <tr>
-              <th>メールアドレス</th>
-              <th><%= f.text_field :email, readonly: true %></th>
-            </tr>
-            <tr>
-              <th>性別</th>
-              <th><%= f.text_field :gender_i18n, readonly: true %></th>
-            </tr>
-            <tr>
-              <th>年齢</th>
-              <th><%= f.text_field :age_i18n, readonly: true %></th>
-            </tr>
-            <tr>
-              <th>会員ステータス</th>
-              <th>
-                <%= f.select :is_active, options_for_select([['有効', 'true'], ['退会', 'false']], :is_active) %>
-              </th>
-            </tr>
-          </tbody>
-        </table>
-      <% end %>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th>ユーザー名</th>
+            <th><%= @customer.name %></th>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <th><%= @customer.email %></th>
+          </tr>
+          <tr>
+            <th>性別</th>
+            <th><%= @customer.gender_i18n %></th>
+          </tr>
+          <tr>
+            <th>年齢</th>
+            <th><%= @customer.age_i18n %></th>
+          </tr>
+          <tr>
+            <th>会員ステータス</th>
+            <th>
+              <%= form_with model: @customer, url: admin_customer_path, local: true, method: :patch do |f| %>
+                <%= f.select :is_active, options_for_select([['有効', 'true'], ['退会', 'false']],selected: @customer.is_active) %>
+                <%= f.submit "更新", class: "btn btn-primary" %>
+              <% end %>
+            </th>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   <div class="row mx-auto">

@@ -22,7 +22,7 @@ class Admin::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.repuire(:customer).permit(:is_active)
+    params.require(:customer).permit(:is_active)
   end
 
 end
