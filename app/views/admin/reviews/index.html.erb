@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col-4 text-center">
+      <h3>レビュー一覧</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-11 col-lg-10 mx-auto">
+      <table class="table">
+        <thead class="table-active">
+          <tr>
+            <th style="width: 15%">投稿日</th>
+            <th style="width: 15%">投稿者</th>
+            <th style="width: 40%">タイトル</th>
+            <th style="width: 15%">総合評価</th>
+            <th style="width: 15%">表示ステータス</th>
+          </tr>
+        </thead>
+        <tboddy>
+          <% @reviews.each do |review| %>
+          <tr>
+            <td class="align-middle"><%= review.created_at.strftime("%Y/%m/%d") %></td>
+            <td class="align-middle"><%= link_to review.customer.name, admin_customer_path(review.customer) %></td>
+            <td class="align-middle"><%= link_to review.title, admin_facility_review_path(review.facility.id, review.id) %></td>
+            <td class="align-middle"><%= review.total_score %></td>
+            <td class="align-middle"><%= review.is_active? ? '表示する' : '表示しない' %></td>
+          </tr>
+          <% end %>
+        </tboddy>
+      </table>
+    </div>
+  </div>
+</div>
