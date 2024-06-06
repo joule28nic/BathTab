@@ -26,6 +26,9 @@ class Public::ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to customers_reviews_path
   end
 
 

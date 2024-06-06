@@ -36,7 +36,7 @@ class Public::CustomersController < ApplicationController
 
   def reviews
     @customer = current_customer
-    @reviews = @customer.reviews.includes(:review)
+    @reviews = @customer.reviews.includes(:facility)
   end
 
 
