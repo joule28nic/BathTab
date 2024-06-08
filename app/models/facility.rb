@@ -4,6 +4,7 @@ class Facility < ApplicationRecord
 
   belongs_to :prefecture
   has_many :reviews
+  has_many :equipment_relationships
 
   geocoded_by :address
   after_validation :geocode

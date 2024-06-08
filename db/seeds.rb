@@ -1,7 +1,7 @@
-Admin.create!(
-  email: 's0nic228eastblue@gmail.com',
-  password: 'sample2000'
-)
+Admin.find_or_create_by!(email: "test@example.com") do |admin|
+  admin.email = 'test@example.com'
+  admin.password = "sample2000"
+end
 
 Region.create([
   { id: 1, name: '北海道・東北'},
@@ -61,4 +61,16 @@ Prefecture.create([
   { name: '宮崎県', region_id: 7},
   { name: '鹿児島県', region_id: 7},
   { name: '沖縄県', region_id: 7}
+])
+
+Equipment.create([
+  { name: '露天風呂'},
+  { name: 'サウナ'},
+  { name: '岩盤浴'},
+  { name: '水風呂'},
+  { name: '休憩室'},
+  { name: 'お食事'},
+  { name: '自動販売機'},
+  { name: '駅近'},
+  { name: '駐車場'},
 ])

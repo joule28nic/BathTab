@@ -69,10 +69,10 @@ ActiveRecord::Schema.define(version: 2024_05_31_115134) do
   end
 
   create_table "equipment", force: :cascade do |t|
-    t.integer "facility_id", null: false
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_equipment_on_name", unique: true
   end
 
   create_table "equipment_relationships", force: :cascade do |t|
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2024_05_31_115134) do
     t.integer "equipment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["facility_id", "equipment_id"], name: "index_equipment_relationships_on_facility_id_and_equipment_id", unique: true
   end
 
   create_table "facilities", force: :cascade do |t|

@@ -6,5 +6,6 @@ class CreateEquipmentRelationships < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_index :equipment_relationships, [:facility_id, :equipment_id], unique: true
   end
 end

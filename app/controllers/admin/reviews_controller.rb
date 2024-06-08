@@ -4,6 +4,8 @@ class Admin::ReviewsController < ApplicationController
   end
 
   def show
+    @facility = Facility.find(params[:facility_id])
+    @review = Review.find(params[:id])
   end
 
   def update
