@@ -6,12 +6,59 @@
   </div>
 
   <div class="row">
+    <!--施設写真スペース-->
+  </div>
+
+  <div class="row">
     <div class="col-6">
-      <!--施設情報用スペース-->
+      <table class="table table-border">
+        <thead>
+          <tr>
+            <td class="col-3">施設名</td>
+            <td class="col-9"><%= @facility.name %></td>
+          </tr>
+          <tr>
+            <td class="col-3">ヨミガナ</td>
+            <td class="col-9"><%= @facility.name_kana %></td>
+          </tr>
+          <tr>
+            <td class="col-3">住所</td>
+            <td class="col-9"><%= @facility.prefecture.name %><%= @facility.address %></td>
+          </tr>
+          <tr>
+            <td class="col-3">電話番号</td>
+            <td class="col-9"><%= @facility.telephone_number %></td>
+          </tr>
+          <tr>
+            <td class="col-3">営業時間</td>
+            <td class="col-9"><%= safe_join(@facility.business_hours.split("\n"),tag(:br)) %></td>
+          </tr>
+          <tr>
+            <td class="col-3">定休日</td>
+            <td class="col-9"><%= @facility.regular_holiday %></td>
+          </tr>
+          <tr>
+            <td class="col-3">料金</td>
+            <td class="col-9"><%= safe_join(@facility.price.split("\n"),tag(:br)) %></td>
+          </tr>
+        </thead>
+      </table>
     </div>
+
     <div class="col-6">
-      <!--施設写真、 google map用スペース-->
-      
+      <div class="row mb-3">
+        <div id="map"></div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h4>アクセス</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p><%= safe_join(@facility.access.split("\n"),tag(:br)) %></p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -24,3 +71,5 @@
     </div>
   </div>
 </div>
+
+<%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>

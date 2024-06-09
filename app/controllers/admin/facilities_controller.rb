@@ -17,7 +17,14 @@ class Admin::FacilitiesController < ApplicationController
   end
 
   def show
-    @facility = Facility.find(params[:id])
+    respond_to do |format|
+      format.html do
+        @facility = Facility.find(params[:id])
+      end
+      format.json do
+        @facility = Facility.find(params[:id])
+      end
+    end
   end
 
   def edit
