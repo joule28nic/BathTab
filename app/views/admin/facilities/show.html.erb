@@ -5,11 +5,13 @@
     </div>
   </div>
 
-  <div class="row">
-    <!--施設写真スペース-->
+  <div class="row mb-3">
+    <div class="col">
+      <%= image_tag @facility.get_image, class: "img-fluid" %>
+    </div>
   </div>
 
-  <div class="row">
+  <div class="row mb-3">
     <div class="col-6">
       <table class="table table-border">
         <thead>
@@ -62,7 +64,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row mb-5">
     <div class="col-3 offset-2">
       <%= link_to "編集する", edit_admin_facility_path(@facility.id), class: "btn btn-primary btn-block" %>
     </div>
