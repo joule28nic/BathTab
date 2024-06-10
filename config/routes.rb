@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     get 'customers/reviews'
     resources :facilities, only: [:index, :show] do
       resources :reviews, except: [:edit, :update]
+      resource :favorite, only: [:create, :destroy]
       post 'reviews/comfirm' => 'reviews#comfirm'
     end
   end

@@ -5,6 +5,7 @@ class Facility < ApplicationRecord
   belongs_to :prefecture
   has_many :reviews
   has_many :equipment_relationships
+  has_many :favorites, dependent: :destroy
 
   geocoded_by :address
   after_validation :geocode
@@ -15,6 +16,10 @@ class Facility < ApplicationRecord
       image.attach(io: File.open(file_path), filename: 'default-image.png', content_type: 'image/png')
     end
     image
+  end
+
+  def favorited_by?(customer)
+    favorites.exists?(customer_id: customer.id)
   end
 
 end
