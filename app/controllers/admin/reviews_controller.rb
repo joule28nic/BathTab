@@ -10,5 +10,19 @@ class Admin::ReviewsController < ApplicationController
   end
 
   def update
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      redirect_to admin_facility_review_path(@review.facility_id, @review)
+    else
+      render admin_facility_review_path(@review.facility_id, @review)
+    end
   end
+
+
+  private
+
+  def review_params
+    params.require(:review).permit(:is_active)
+  end
+
 end
