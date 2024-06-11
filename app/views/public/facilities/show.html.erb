@@ -5,9 +5,18 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
-      <%= link_to 'レビューする', new_facility_review_path(@facility.id) %>
+  <%= render 'shared/facility_information', facility: @facility %>
+
+  <div class="row mb-5">
+    <div class="col-3 offset-2">
+      <% if @facility.favorited_by?(current_customer) %>
+        <%= link_to "★お気に入りから削除", facility_favorite_path(@facility), method: :delete, class: "btn btn-primary btn-block" %>
+        <% else %>
+        <%= link_to "☆お気に入りに追加", facility_favorite_path(@facility), method: :post, class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+    <div class="col-3 offset-2">
+      <%= link_to "レビューする", new_facility_review_path(@facility.id), class: "btn btn-primary btn-block" %>
     </div>
   </div>
 
