@@ -1,6 +1,6 @@
 class Public::FacilitiesController < ApplicationController
   def index
-    @facilities = Facility.all
+    @facilities = Facility.page(params[:page])
   end
 
   def show
