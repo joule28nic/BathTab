@@ -1,0 +1,49 @@
+<% facilities.each do |facility| %>
+  <div class="row">
+    <div class="col">
+      <%= link_to facility_path(facility) do %>
+        <h4><%= facility.name %></h4>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p><%= facility.prefecture.name %> <%= facility.address %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <%= image_tag facility.get_image, class: "img-fluid" %>
+    </div>
+    <div class="col-8">
+      <div class="row">
+        <div class="col-3">
+          <p>⚫︎営業時間</p>
+        </div>
+        <div class="col-9">
+          <p><%= safe_join(facility.business_hours.split("\n"),tag(:br)) %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <p>⚫︎入浴料</p>
+        </div>
+        <div class="col-9">
+          <p><%= safe_join(facility.price.split("\n"),tag(:br)) %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h5>評価　点</h5>
+        </div>
+      </div>
+      <div class="row">
+        <% if facility.favorited_by?(current_customer) %>
+          <%= link_to "★お気に入りから削除", facility_favorite_path(facility), method: :delete, class: "btn btn-primary btn-block" %>
+          <% else %>
+          <%= link_to "☆お気に入りに追加", facility_favorite_path(facility), method: :post, class: "btn btn-primary btn-block" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
