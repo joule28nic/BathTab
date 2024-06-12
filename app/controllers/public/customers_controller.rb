@@ -31,7 +31,8 @@ class Public::CustomersController < ApplicationController
 
   def favorites
     @customer = current_customer
-    @facilities = @customer.favorites.includes(:facility)
+    favorites = Favorite.where(customer_id: current_customer.id).pluck(:facility_id)
+    @facilities = Facility.find(favorites)
   end
 
   def reviews
