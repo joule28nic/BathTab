@@ -1,13 +1,58 @@
 <div class="container">
-  <div class="row py-4">
-    <div class="col-4 text-center">
-      <h3><%= @facility.name %></h3>
+  <%= render 'shared/facility_header', facility: @facility %>
+  <%= render 'shared/facility_score', facility: @facility %>
+
+  <div class="row">
+    <div class="col-4 offset-4">
+      <%= link_to "施設情報", facility_path(@facility), class: "btn btn-primary btn-block" %>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row mb-1">
+    <div class="col-8">
+      <h4><%= @review.title %></h4>
+    </div>
+  </div>
+
+  <div class="row mb-3">
     <div class="col">
-      <p>レビュー詳細</p>
+      <p><%= @review.customer.name %> さん　性別：<%= @review.customer.gender_i18n %>　年齢：<%= @review.customer.age_i18n %></p>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-6">
+      <h4>総合評価　<%= @review.total_score %>点</h4>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-6">
+          <p>施設　<%= @review.facility_score %>点</p>
+        </div>
+        <div class="col-6">
+          <p>温泉　<%= @review.onsen_score %>点</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <p>サービス　<%= @review.service_score %>点</p>
+        </div>
+        <div class="col-6">
+          <p>食事　<%= @review.meal_score %>点</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col">
+      <p><%= @review.comment %></p>
+    </div>
+  </div>
+
+  <div class="row pb-4 justify-content-center">
+    <div class="col text-center">
+      <%= link_to "レビュー一覧に戻る", facility_reviews_path(@facility) %>
     </div>
   </div>
 
