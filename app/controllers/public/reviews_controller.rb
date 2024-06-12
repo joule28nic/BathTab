@@ -18,6 +18,8 @@ class Public::ReviewsController < ApplicationController
   end
 
   def index
+    @facility = Facility.find(params[:facility_id])
+    @reviews = @facility.reviews.page(params[:page]).per(10)
   end
 
   def show
