@@ -1,4 +1,5 @@
 class Public::FavoritesController < ApplicationController
+  before_action :authenticate_customer!
 
   def create
     facility = Facility.find(params[:facility_id])

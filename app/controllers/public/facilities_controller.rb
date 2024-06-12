@@ -1,4 +1,5 @@
 class Public::FacilitiesController < ApplicationController
+
   def index
     @facilities = Facility.page(params[:page])
   end

@@ -1,4 +1,6 @@
 class Admin::ReviewsController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @facility = Facility.find(params[:facility_id])
     @reviews = Review.all
