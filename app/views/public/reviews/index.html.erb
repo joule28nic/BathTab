@@ -20,7 +20,7 @@
   <% @reviews.each do |review| %>
     <div class="row mb-3">
       <div class="col-8">
-        <h4><%= review.title %></h4>
+        <h4><%= link_to review.title, facility_review_path(review.facility_id, review) %></h4>
       </div>
     </div>
 

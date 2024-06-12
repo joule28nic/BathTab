@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'likes/create'
+    get 'likes/destroy'
+  end
   # 管理者用
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -36,7 +40,9 @@ Rails.application.routes.draw do
     get 'customers/favorites'
     get 'customers/reviews'
     resources :facilities, only: [:index, :show] do
-      resources :reviews, except: [:edit, :update]
+      resources :reviews, except: [:edit, :update] do
+        resource :like, only: [:create, :destroy]
+      end
       resource :favorite, only: [:create, :destroy]
       post 'reviews/comfirm' => 'reviews#comfirm'
     end

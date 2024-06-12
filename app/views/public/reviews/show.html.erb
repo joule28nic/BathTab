@@ -15,8 +15,19 @@
   </div>
 
   <div class="row mb-3">
-    <div class="col">
+    <div class="col-10">
       <p><%= @review.customer.name %> さん　性別：<%= @review.customer.gender_i18n %>　年齢：<%= @review.customer.age_i18n %></p>
+    </div>
+    <div class="col-2">
+      <% if @review.liked_by?(current_customer) %>
+        <%= link_to facility_review_like_path(@review.facility_id, @review), method: :delete, class: "btn btn-light btn-block" do %>
+          ♥<%= @review.likes.count %> いいね！
+        <% end %>
+      <% else %>
+        <%= link_to facility_review_like_path(@review.facility_id, @review), method: :create, class: "btn btn-light btn-block" do %>
+          ♡<%= @review.likes.count %> いいね！
+        <% end %>
+      <% end %>
     </div>
   </div>
 
