@@ -8,43 +8,47 @@
   <div class="row">
     <%= render 'shared/my_page' %>
     <div class="col-8">
-      <div class="row justify-content-center">
-        <div class="col-4 text-center">
-          <h5>登録情報</h5>
-        </div>
-      </div>
+      <div class="row border border-dark">
+        <div class="col-10 offset-1">
+          <div class="row justify-content-center">
+            <div class="col-4 text-center my-3">
+              <h3>登録情報</h3>
+            </div>
+          </div>
 
-      <div class="row">
-        <div class="col-4">
-          <p>メールアドレス</p>
-        </div>
-        <div class="col-8">
-          <p><%= @customer.name %></p>
+          <div class="row justify-content-center mb-3">
+            <div class="col-4 text-center border border-dark p-2">
+              <span class="align-middle">メールアドレス</span>
+            </div>
+            <div class="col-7 offset-1 text-center border border-dark p-2">
+              <span class="align-middle"><%= @customer.name %></span>
+            </div>
+          </div>
+          <div class="row justify-content-center mb-3">
+            <div class="col-4 text-center border border-dark p-2">
+              <span class="align-middle">性別</span>
+            </div>
+            <div class="col-7 offset-1 text-center border border-dark p-2">
+              <span class="align-middle"><%= @customer.gender_i18n %></span>
+            </div>
+          </div>
+          <div class="row justify-content-center mb-4">
+            <div class="col-4 text-center border border-dark p-2">
+              <span class="align-middle">年齢</span>
+            </div>
+            <div class="col-7 offset-1 text-center border border-dark p-2">
+              <span class="align-middle"><%= @customer.age_i18n %></span>
+            </div>
+          </div>
+          <% unless @customer.guest_user? %>
+          <div class="row justify-content-center mb-3">
+            <div class="col-4">
+              <%= link_to "編集する", customers_information_edit_path, class: "btn btn-primary btn-block" %>
+            </div>
+          </div>
+          <% end %>
         </div>
       </div>
-      <div class="row">
-        <div class="col-4">
-          <p>性別</p>
-        </div>
-        <div class="col-8">
-          <p><%= @customer.gender_i18n %></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4">
-          <p>年齢</p>
-        </div>
-        <div class="col-8">
-          <p><%= @customer.age_i18n %></p>
-        </div>
-      </div>
-      <% unless @customer.guest_user? %>
-      <div class="row justify-content-center">
-        <div class="col-4">
-          <%= link_to "編集する", customers_information_edit_path, class: "btn btn-success btn-block" %>
-        </div>
-      </div>
-      <% end %>
     </div>
   </div>
 

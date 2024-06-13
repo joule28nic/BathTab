@@ -11,8 +11,11 @@ async function initMap() {
   const { Map } = await  google.maps.importLibrary("maps");
   const {AdvancedMarkerElement} = await google.maps.importLibrary("marker")
 
+  const latitude = parseFloat(document.getElementById("map").getAttribute('data-latitude')) || 0
+  const longitude =parseFloat(document.getElementById("map").getAttribute('data-longitude')) || 0
+
   map = new Map(document.getElementById("map"), {
-    center: { lat: 35.681236, lng: 139.767125 },
+    center: { lat: latitude, lng: longitude },
     zoom: 15,
     mapId: "DEMO_MAP_ID",
     mapTypeControl: false
