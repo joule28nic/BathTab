@@ -12,6 +12,6 @@ class Public::LikesController < ApplicationController
     review = Review.find(params[:review_id])
     like = current_customer.likes.find_by(review_id: review.id)
     like.destroy
-    redirect_to facility_review_path(review.facility_id, review)
+    redirect_to facility_reviews_path(review.facility_id)
   end
 end

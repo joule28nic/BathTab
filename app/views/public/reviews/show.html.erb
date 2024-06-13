@@ -8,56 +8,62 @@
     </div>
   </div>
 
-  <div class="row mb-3">
-    <div class="col-8">
-      <h4><%= @review.title %></h4>
-    </div>
-  </div>
-
-  <div class="row mb-3">
-    <div class="col-10">
-      <p><%= @review.customer.name %> さん　性別：<%= @review.customer.gender_i18n %>　年齢：<%= @review.customer.age_i18n %></p>
-    </div>
-    <div class="col-2">
-      <% if @review.liked_by?(current_customer) %>
-        <%= link_to facility_review_like_path(@review.facility_id, @review), method: :delete, class: "btn btn-light btn-block" do %>
-          ♥<%= @review.likes.count %> いいね！
-        <% end %>
-      <% else %>
-        <%= link_to facility_review_like_path(@review.facility_id, @review), method: :create, class: "btn btn-light btn-block" do %>
-          ♡<%= @review.likes.count %> いいね！
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row mb-3">
-    <div class="col-6">
-      <h4>総合評価　<%= @review.total_score %>点</h4>
-    </div>
-    <div class="col-6">
-      <div class="row">
-        <div class="col-6">
-          <p>施設　<%= @review.facility_score %>点</p>
-        </div>
-        <div class="col-6">
-          <p>温泉　<%= @review.onsen_score %>点</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <p>サービス　<%= @review.service_score %>点</p>
-        </div>
-        <div class="col-6">
-          <p>食事　<%= @review.meal_score %>点</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-5">
+  <div class="row border border-dark mb-3">
     <div class="col">
-      <p><%= @review.comment %></p>
+
+      <div class="row mb-3">
+        <div class="col-8">
+          <h4><%= @review.title %></h4>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-10">
+          <p><%= @review.customer.name %> さん　性別：<%= @review.customer.gender_i18n %>　年齢：<%= @review.customer.age_i18n %></p>
+        </div>
+        <div class="col-2">
+          <% if @review.liked_by?(current_customer) %>
+            <%= link_to facility_review_like_path(@review.facility_id, @review), method: :delete, class: "btn btn-light btn-block" do %>
+              ♥<%= @review.likes.count %> いいね！
+            <% end %>
+          <% else %>
+            <%= link_to facility_review_like_path(@review.facility_id, @review), method: :create, class: "btn btn-light btn-block" do %>
+              ♡<%= @review.likes.count %> いいね！
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-6">
+          <h4>総合評価　<%= @review.total_score %>点</h4>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <div class="col-6">
+              <p>施設　<%= @review.facility_score %>点</p>
+            </div>
+            <div class="col-6">
+              <p>温泉　<%= @review.onsen_score %>点</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <p>サービス　<%= @review.service_score %>点</p>
+            </div>
+            <div class="col-6">
+              <p>食事　<%= @review.meal_score %>点</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-5">
+        <div class="col">
+          <p><%= @review.comment %></p>
+        </div>
+      </div>
+
     </div>
   </div>
 
