@@ -13,6 +13,8 @@ class Admin::FacilitiesController < ApplicationController
     @facility = Facility.new(facility_params)
     if @facility.save
       redirect_to admin_facility_path(@facility)
+    else
+      render 'new'
     end
   end
 
@@ -44,7 +46,19 @@ class Admin::FacilitiesController < ApplicationController
   private
 
   def facility_params
-    params.require(:facility).permit(:name, :name_kana, :prefecture_id, :address, :telephone_number, :business_hours, :regular_holiday, :price, :image, :access)
+    params.require(:facility).permit(
+      :name,
+      :name_kana,
+      :prefecture_id,
+      :address,
+      :telephone_number,
+      :business_hours,
+      :regular_holiday,
+      :price,
+      :image,
+      :access,
+      equipment_ids: []
+    )
   end
 
 end

@@ -1,6 +1,6 @@
 <div class="row mb-3">
   <div class="col">
-    <%= image_tag @facility.get_image, class: "img-fluid" %>
+    <%= image_tag facility.get_image, class: "img-fluid" %>
   </div>
 </div>
 
@@ -10,31 +10,31 @@
       <thead>
         <tr>
           <td class="col-3">施設名</td>
-          <td class="col-9"><%= @facility.name %></td>
+          <td class="col-9"><%= facility.name %></td>
         </tr>
         <tr>
           <td class="col-3">ヨミガナ</td>
-          <td class="col-9"><%= @facility.name_kana %></td>
+          <td class="col-9"><%= facility.name_kana %></td>
         </tr>
         <tr>
           <td class="col-3">住所</td>
-          <td class="col-9"><%= @facility.prefecture.name %><%= @facility.address %></td>
+          <td class="col-9"><%= facility.prefecture.name %><%= facility.address %></td>
         </tr>
         <tr>
           <td class="col-3">電話番号</td>
-          <td class="col-9"><%= @facility.telephone_number %></td>
+          <td class="col-9"><%= facility.telephone_number %></td>
         </tr>
         <tr>
           <td class="col-3">営業時間</td>
-          <td class="col-9"><%= safe_join(@facility.business_hours.split("\n"),tag(:br)) %></td>
+          <td class="col-9"><%= safe_join(facility.business_hours.split("\n"),tag(:br)) %></td>
         </tr>
         <tr>
           <td class="col-3">定休日</td>
-          <td class="col-9"><%= @facility.regular_holiday %></td>
+          <td class="col-9"><%= facility.regular_holiday %></td>
         </tr>
         <tr>
           <td class="col-3">料金</td>
-          <td class="col-9"><%= safe_join(@facility.price.split("\n"),tag(:br)) %></td>
+          <td class="col-9"><%= safe_join(facility.price.split("\n"),tag(:br)) %></td>
         </tr>
       </thead>
     </table>
@@ -42,7 +42,7 @@
 
   <div class="col-6">
     <div class="row mb-3">
-      <div id="map" data-latitude = "<%= @facility.latitude %>" data-longitude = "<%= @facility.longitude %>"></div>
+      <div id="map" data-latitude = "<%= facility.latitude %>" data-longitude = "<%= facility.longitude %>"></div>
     </div>
     <div class="row">
       <div class="col">
@@ -51,7 +51,27 @@
     </div>
     <div class="row">
       <div class="col">
-        <p><%= safe_join(@facility.access.split("\n"),tag(:br)) %></p>
+        <p><%= safe_join(facility.access.split("\n"),tag(:br)) %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="row pb-4">
+      <div class="col-4 text-center">
+        <h3>設備</h3>
+      </div>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col">
+        <h4>
+          <% facility.equipment.each do |equipment| %>
+            <span class= 'badge badge-light'><%= equipment.name %></span>
+          <% end %>
+        </h4>
       </div>
     </div>
   </div>

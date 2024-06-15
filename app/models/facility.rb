@@ -4,7 +4,8 @@ class Facility < ApplicationRecord
 
   belongs_to :prefecture
   has_many :reviews
-  has_many :equipment_relationships
+  has_many :equipment_relationships, dependent: :destroy
+  has_many :equipment, through: :equipment_relationships
   has_many :favorites, dependent: :destroy
 
   geocoded_by :address
