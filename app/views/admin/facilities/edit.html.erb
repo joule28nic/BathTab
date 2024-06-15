@@ -47,13 +47,34 @@
           <label for="access" class="col-sm-4 col-form-label">アクセス</label>
           <%= f.text_area :access, class: "col-sm-7", rows: 4, placeholder: "〇〇より車で〇分", id: "access" %>
         </div>
-
-        <div class="action">
-          <%= f.submit "変更を保存", class: "btn btn-success col-3 mx-auto d-block" %>
-        </div>
-
-      <% end %>
+      </div>
     </div>
-  </div>
+
+    <div class="row pb-4">
+      <div class="col-4 text-center">
+        <h3>設備</h3>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-10 offset-1">
+        <div class="field row mb-3">
+          <%= f.collection_check_boxes(:equipment_ids, Equipment.all, :id, :name ) do |b| %>
+            <div class='form-check'>
+              <%= b.label class: 'form-check-label' do %>
+                <%= b.check_box class: 'form-check-input' %>
+                <%= b.text %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="action mb-5">
+      <%= f.submit "変更を保存", class: "btn btn-success col-3 mx-auto d-block" %>
+    </div>
+
+  <% end %>
 
 </div>

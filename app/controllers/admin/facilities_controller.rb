@@ -38,7 +38,7 @@ class Admin::FacilitiesController < ApplicationController
     if @facility.update(facility_params)
       redirect_to admin_facility_path(@facility)
     else
-      render edit_admin_facility_path(@facility)
+      render 'edit'
     end
   end
 

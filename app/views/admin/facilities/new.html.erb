@@ -22,7 +22,7 @@
         </div>
         <div class="field row mb-3">
           <label for="address" class="col-sm-4 col-form-label">住所</label>
-          <%= f.select :prefecture_id, options_from_collection_for_select(Prefecture.all, :id, :name), {include_blank: "--選択してください--"}, class:"col-sm-7" %>
+          <%= f.select :prefecture_id, options_from_collection_for_select(Prefecture.all, :id, :name), {include_blank: "--選択してください--"}, class: "col-sm-7" %>
         </div>
         <div class="field row mb-3">
           <%= f.text_field :address, class: "col-sm-7 offset-sm-4", placeholder: "〇〇市〇〇0-0", id: "address" %>
@@ -61,7 +61,7 @@
     </div>
 
     <div class="row mb-4">
-      <div class="col">
+      <div class="col-10 offset-1">
         <div class="field row mb-3">
           <%= f.collection_check_boxes(:equipment_ids, Equipment.all, :id, :name ) do |b| %>
             <div class='form-check'>
