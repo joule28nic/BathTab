@@ -1,7 +1,7 @@
 class Public::FacilitiesController < ApplicationController
 
   def index
-    @facilities = Facility.page(params[:page])
+    @facilities = Facility.where(prefecture_id: params[:prefecture_id]).page(params[:page])
   end
 
   def show

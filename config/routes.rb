@@ -1,20 +1,17 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'likes/create'
-    get 'likes/destroy'
-  end
   # 管理者用
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
 
   namespace :admin do
-    get '/' => 'homes#top'
+    get "/" => 'homes#top'
     resources :customers, only: [:index, :show, :edit, :update]
     resources :facilities, except: [:destroy] do
       resources :reviews, only: [:index, :show, :update]
     end
+    get "/search", to: "searches#search"
   end
 
 
@@ -39,6 +36,7 @@ Rails.application.routes.draw do
     patch '/customers/withdraw' => 'customers#withdraw', as: 'withdraw'
     get 'customers/favorites'
     get 'customers/reviews'
+    get "/search", to: "searches#search"
     resources :facilities, only: [:index, :show] do
       resources :reviews, except: [:edit, :update] do
         resource :like, only: [:create, :destroy]
