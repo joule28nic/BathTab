@@ -62,3 +62,4 @@ gem 'bootstrap4-kaminari-views'
 gem 'pry-byebug', group: :development
 gem 'dotenv-rails'
 gem 'geocoder'
+gem 'ransack'
