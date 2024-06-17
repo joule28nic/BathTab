@@ -24,7 +24,7 @@ class Admin::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:is_active)
+    params.require(:review).permit(:total_score, :facility_score, :onsen_score, :service_score, :meal_score, :is_active)
   end
 
 end
