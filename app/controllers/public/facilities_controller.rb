@@ -3,9 +3,9 @@ class Public::FacilitiesController < ApplicationController
 
   def index
     if @q
-      @facilities = @q.result.page(params[:page])
+      @facilities = @q.result.page(params[:page]).per(10)
     else
-      @facilities = Facility.all.page(params[:page])
+      @facilities = Facility.all.page(params[:page]).per(10)
     end
   end
 

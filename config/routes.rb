@@ -38,8 +38,10 @@ Rails.application.routes.draw do
     patch '/customers/withdraw' => 'customers#withdraw', as: 'withdraw'
     get 'customers/favorites'
     get 'customers/reviews'
-    get "/search", to: "searches#search"
     resources :facilities, only: [:index, :show] do
+      collection do
+        get 'search' => 'facilities#index'
+      end
       resources :reviews, except: [:edit, :update] do
         resource :like, only: [:create, :destroy]
       end

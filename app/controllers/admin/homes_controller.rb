@@ -6,10 +6,11 @@ class Admin::HomesController < ApplicationController
     @regions = Region.all
   end
 
-private
 
-def set_q
-  @q = Facility.ransack(params[:q])
-end
+  private
+
+  def set_q
+    @q = Facility.ransack(params[:q])
+  end
 
 end
