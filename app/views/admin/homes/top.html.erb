@@ -15,8 +15,8 @@
                     <h5><%= region.name %></h5>
                   </div>
                   <div class="col-6 offset-1">
-                    <%= form_with url: admin_facilities_path, method: :get, local: true do |f| %>
-                      <%= f.collection_select(:prefecture_id, Prefecture.by_region(region.id), :id, :name) %>
+                    <%= search_form_for @q, url: search_admin_facilities_path do |f| %>
+                      <%= f.collection_select(:prefecture_id_eq, Prefecture.by_region(region.id), :id, :name) %>
                       <%= f.submit "検索" %>
                     <% end %>
                   </div>

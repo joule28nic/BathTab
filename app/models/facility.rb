@@ -23,4 +23,7 @@ class Facility < ApplicationRecord
     favorites.exists?(customer_id: customer.id)
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["access", "address", "business_hours", "created_at", "id", "latitude", "longitude", "name", "name_kana", "prefecture_id", "price", "regular_holiday", "telephone_number", "updated_at"]
+  end
 end

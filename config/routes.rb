@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    get "/" => 'homes#top'
+    root to: 'homes#top'
     resources :customers, only: [:index, :show, :edit, :update]
     resources :facilities, except: [:destroy] do
+      collection do
+        get 'search' => 'facilities#index'
+      end
       resources :reviews, only: [:index, :show, :update]
     end
-    get "/search", to: "searches#search"
   end
 
 

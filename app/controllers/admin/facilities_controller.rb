@@ -1,8 +1,13 @@
 class Admin::FacilitiesController < ApplicationController
   before_action :authenticate_admin!
+  before_action :set_q, only: [:index, :search]
 
   def index
-    @facilities = Facility.page(params[:page]).per(10)
+    if @q
+      @facilities = @q.result.page(params[:page]).per(10)
+    else
+      @facilities = Facility.all.page(params[:page]).per(10)
+    end
   end
 
   def new
@@ -61,4 +66,7 @@ class Admin::FacilitiesController < ApplicationController
     )
   end
 
+  def set_q
+    @q = Facility.ransack(params[:q])
+  end
 end
