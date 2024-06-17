@@ -4,6 +4,7 @@ class Admin::HomesController < ApplicationController
 
   def top
     @regions = Region.all
+    @equipment = Equipment.all
   end
 
 

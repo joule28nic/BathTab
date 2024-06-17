@@ -49,9 +49,11 @@
             <h3>設備から探す</h3>
           </div>
           <div class="row">
-            <div class="col">
-
-            </div>
+            <% @equipment.each do |equipment| %>
+              <div class="col-4">
+                <%= link_to equipment.name, search_admin_facilities_path(q: { equipment_id_eq: equipment.id }) %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
