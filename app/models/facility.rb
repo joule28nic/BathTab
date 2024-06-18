@@ -28,7 +28,7 @@ class Facility < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    ["access", "address", "business_hours", "created_at", "id", "latitude", "longitude", "name", "name_kana", "prefecture_id", "price", "regular_holiday", "telephone_number", "updated_at"]
+    ["access", "address", "business_hours", "created_at", "equipment", "id", "latitude", "longitude", "name", "name_kana", "prefecture_id", "price", "regular_holiday", "reviews", "telephone_number", "updated_at"]
   end
 
 end

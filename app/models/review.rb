@@ -12,4 +12,8 @@ class Review < ApplicationRecord
     likes.exists?(customer_id: customer.id)
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["comment", "created_at", "customer_id", "facility_id", "facility_score", "id", "is_active", "meal_score", "onsen_score", "service_score", "title", "total_score", "updated_at"]
+  end
+
 end
