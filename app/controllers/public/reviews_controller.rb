@@ -19,7 +19,7 @@ class Public::ReviewsController < ApplicationController
 
   def index
     @facility = Facility.find(params[:facility_id])
-    @reviews = @facility.reviews.page(params[:page]).per(10)
+    @reviews = @facility.reviews.where(is_active: true).page(params[:page]).per(10)
   end
 
   def show
