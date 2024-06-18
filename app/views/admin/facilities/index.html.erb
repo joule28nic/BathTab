@@ -27,7 +27,7 @@
               <td class="aline-middle"><%= facility.id %></td>
               <td class="aline-middle"><%= link_to facility.name, admin_facility_path(facility) %></td>
               <td class="aline-middle"><%= facility.prefecture.name %><%= facility.address %></td>
-              <td class="aline-middle"></td>
+              <td class="aline-middle"><%= facility.reviews.average(:total_score).to_f.round(1) %>点</td>
               <td class="aline-middle"><%= link_to "編集する", edit_admin_facility_path(facility), class: "btn btn-primary btn-block" %></td>
             </tr>
           <% end %>
