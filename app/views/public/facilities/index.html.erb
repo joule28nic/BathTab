@@ -4,16 +4,49 @@
       <!--検索条件-->
       <div class="row py-4">
         <div class="col text-center">
-          <h4>検索条件を変更</h4>
+          <h3>検索条件を変更</h3>
         </div>
       </div>
-      <div class="row">
-        <div class="col-8"></div>
-        <div class="col-4"></div>
+      <div class="row border border-dark">
+        <div class="col">
+          <%= search_form_for @q, url: search_facilities_path do |f| %>
+          <div class="row pb-3">
+            <div class="col text-center">
+              <h3>エリア</h3>
+            </div>
+          </div>
+
+          <div class="row pb-3">
+            <div class="col-8">
+              <%= f.collection_select(:prefecture_id_eq, Prefecture.all, :id, :name) %>
+            </div>
+          </div>
+
+          <div class="row pb-3">
+            <div class="col text-center">
+              <h3>設備</h3>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <% @equipment.each do |equipment| %>
+              <div class="col-6">
+
+                <label><%= equipment.name %></label>
+              </div>
+            <% end %>
+          </div>
+          <div class="row mb-3">
+            <div class="col-4 offset-4">
+              <%= f.submit "検索", class: "btn btn-primary btn-block" %>
+            </div>
+          </div>
+        <% end %>
+        </div>
       </div>
     </div>
 
-    <div class="col-8">
+    <div class="col-7 offset-1">
       <div class="row py-4">
         <div class="col text-center">
           <h3>施設一覧</h3>

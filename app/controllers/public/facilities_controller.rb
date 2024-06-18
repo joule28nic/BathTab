@@ -2,6 +2,8 @@ class Public::FacilitiesController < ApplicationController
   before_action :set_q, only: [:index, :search]
 
   def index
+    @prefectures = Prefecture.all
+    @equipment = Equipment.all
     if @q
       @facilities = @q.result.page(params[:page]).per(10)
     else
