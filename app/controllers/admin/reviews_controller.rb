@@ -3,7 +3,7 @@ class Admin::ReviewsController < ApplicationController
 
   def index
     @facility = Facility.find(params[:facility_id])
-    @reviews = Review.all
+    @reviews = @facility.reviews.all
   end
 
   def show

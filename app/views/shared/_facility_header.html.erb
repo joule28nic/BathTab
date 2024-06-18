@@ -4,9 +4,7 @@
   </div>
   <div class="col">
     <h5>
-      評価
-      <div id = "star-rate"></div>
-      <%= facility.reviews.average(:total_score).to_f.round(1) %>点
+      評価　<span id = "star-rate"></span>　　<%= facility.reviews.average(:total_score).to_f.round(1) %>点
     </h5>
   </div>
 </div>

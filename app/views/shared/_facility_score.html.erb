@@ -9,18 +9,54 @@
     </div>
     <div class="row">
       <div class="col-6 border border-dark">
-        <p>施設</p>
+        <div class="row">
+          <div class="col-8">
+            <p>施設</p>
+          </div>
+          <div class="col-4">
+            <p>
+              <%= facility.reviews.average(:facility_score).to_f.round(1) %>点
+            </p>
+          </div>
+        </div>
       </div>
       <div class="col-6 border border-dark">
-        <p>温泉</p>
+        <div class="row">
+          <div class="col-8">
+            <p>温泉</p>
+          </div>
+          <div class="col-4">
+            <p>
+              <%= facility.reviews.average(:onsen_score).to_f.round(1) %>点
+            </p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="col-6 border border-dark">
-        <p>サービス</p>
+        <div class="row">
+          <div class="col-8">
+            <p>サービス</p>
+          </div>
+          <div class="col-4">
+            <p>
+              <%= facility.reviews.average(:service_score).to_f.round(1) %>点
+            </p>
+          </div>
+        </div>
       </div>
       <div class="col-6 border border-dark">
-        <p>お食事</p>
+        <div class="row">
+          <div class="col-8">
+            <p>お食事</p>
+          </div>
+          <div class="col-4">
+            <p>
+              <%= facility.reviews.average(:meal_score).to_f.round(1) %>点
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
