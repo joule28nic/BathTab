@@ -8,6 +8,15 @@ class Facility < ApplicationRecord
   has_many :equipment, through: :equipment_relationships
   has_many :favorites, dependent: :destroy
 
+  validates :name, presence: true
+  validates :name_kana, presence: true
+  validates :address, presence: true
+  validates :telephone_number, presence: true
+  validates :business_hours, presence: true
+  validates :regular_holiday, presence: true
+  validates :price, presence: true
+  validates :access, presence: true
+
   geocoded_by :address
   after_validation :geocode
 

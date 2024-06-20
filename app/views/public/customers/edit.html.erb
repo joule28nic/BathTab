@@ -5,6 +5,15 @@
     </div>
   </div>
 
+  <% if @customer.errors.any? %>
+      <%= @customer.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @customer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+  <% end %>
+
   <div class="row">
     <div class="col-sm-12 col-md-10 col-lg-8 px-5 px-sm-0 mx-auto">
       <%= form_with model: @customer, url: customers_information_path do |f| %>

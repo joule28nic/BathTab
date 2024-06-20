@@ -1,5 +1,5 @@
 class Region < ApplicationRecord
 
-  has_many :facilities
+  has_many :prefectures
 
 end

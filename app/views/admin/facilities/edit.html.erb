@@ -5,6 +5,15 @@
     </div>
   </div>
 
+  <% if @facility.errors.any? %>
+    <%= @facility.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @facility.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div class="row">
     <div class="col-sm-12 col-md-9 col-lg-6 px-5 px-sm-0 mx-auto">
       <%= form_with model: @facility, url: admin_facility_path do |f| %>
